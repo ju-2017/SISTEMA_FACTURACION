@@ -1,0 +1,99 @@
+# SISTEMA_FACTURACION
+
+//PRODUCTO
+
+private SqlDataReader objraider;
+
+
+
+        public bool listarProducto(DataGridView dataGridDatos)
+        {
+            ClsLlenarGrid objG = new ClsLlenarGrid();
+            objG.NombreTabla = "datosProducto";
+            objG.SQL = "USP_LISTAR_PRODUCTO";
+
+            if (!objG.LlenarGrid(dataGridDatos))
+            {
+                error = objG.Error;
+                objG = null;
+                return false;
+            }
+
+            objG = null;
+            return true;
+
+        }
+
+        public bool consultarProducto()
+        {
+            string sentencia = "USP_CONSULTAR_PRODUCTO '" + id_producto + "'";
+            ClsConexion objC = new ClsConexion();
+
+            if(!objC.Consultar(sentencia, false))
+            {
+                error = objC.Error;
+                objC = null;
+                return false;
+
+            }
+            else
+            {
+                Objraider = objC.Reader;
+                objC = null;
+                return true;
+            }
+        }
+        
+        public SqlDataReader Objraider { get => objraider; set => objraider = value; }
+        
+        
+        
+        //CATEGORIA------------------------------------------------------------------------------------------------------------------------------------
+        
+        private SqlDataReader objraider;
+        
+                public bool listarCategoria(DataGridView dataGridDatos)
+        {
+            ClsLlenarGrid objG = new ClsLlenarGrid();
+            objG.NombreTabla = "datosCategoria";
+            objG.SQL = "USP_LISTAR_cATEGORIA";
+
+            if (!objG.LlenarGrid(dataGridDatos))
+            {
+                error = objG.Error;
+                objG = null;
+                return false;
+            }
+
+            objG = null;
+            return true;
+
+        }
+
+        public bool consultarCategoria()
+        {
+            string sentencia = "USP_CONSULTAR_CATEGORIA '" + id_categoria + "'";
+            ClsConexion objC = new ClsConexion();
+
+            if (!objC.Consultar(sentencia, false))
+            {
+                error = objC.Error;
+                objC = null;
+                return false;
+
+            }
+            else
+            {
+                Objraider = objC.Reader;
+                objC = null;
+                return true;
+            }
+        }
+        
+        public SqlDataReader Objraider { get => objraider; set => objraider = value; }
+        
+        
+        
+                public SqlDataReader Objraider { get => objraider; set => objraider = value; }
+                
+                
