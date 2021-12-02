@@ -147,3 +147,27 @@ PRODUCTO--------------------------------------------------
         }
     }
 }
+
+
+
+COMBO BOX 
+
+        private void llenarComboCategoria()
+        {
+
+            Lib_TProducto objP = new Lib_TProducto();
+            if (!objP.comboCategoria(comboCategoria))
+            {
+                MessageBox.Show(objP.Error);
+                return;
+            }
+
+
+        }
+
+        private void BtnIdCategoria_Click(object sender, EventArgs e)
+        {
+            TxtProducto.Text = comboCategoria.SelectedValue.ToString();
+            return;
+
+        }
